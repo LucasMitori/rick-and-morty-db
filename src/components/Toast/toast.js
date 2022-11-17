@@ -16,12 +16,17 @@ export const ToastMessage = (message) =>
 export const ToastError = (message) => {
   toast.error(message, {
     position: "top-right",
-    autoClose: 5000,
+    autoClose: 3000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    style: { width: "260px", backgroundColor: "var(--color-grey-3)" },
+    theme: "dark",
+    style: {
+      width: "260px",
+      backgroundColor: "var(--color-grey-3)",
+      color: "var(--color-white-mode)",
+    },
   });
 };

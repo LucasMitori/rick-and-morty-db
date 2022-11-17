@@ -31,7 +31,7 @@ export const ButtonBack = styled(Link)`
   background-color: var(--color-quinternary);
   color: var(--color-black-mode);
   border-radius: var(--radius-8);
-  border: 1px solid var(--color-quinternary);
+  border: 1px solid var(--color-black-mode);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,6 +53,29 @@ export const Character = styled.section`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: 480px) {
+  }
+  @media screen and (min-width: 768px) {
+    width: 750px;
+  }
+  @media screen and (min-width: 1024px) {
+  }
+  @media screen and (min-width: 1200px) {
+  }
+  @media screen and (max-width: 1920px) {
+  }
+
+  & > h2 {
+    font-family: var(--font-quinternary-nunito);
+    font-size: var(--font-subtitle-20);
+    font-weight: var(--font-weight-700);
+    font-style: normal;
+    color: var(--color-black-mode);
+    text-shadow: 0 -1px 4px #fff, 0 -2px 10px #ff0, 0 -10px 20px #ff8000,
+      0 -18px 40px #f00;
+    margin-top: 10px;
+  }
 `;
 
 export const CharacterInformation = styled.div`
@@ -64,6 +87,18 @@ export const CharacterInformation = styled.div`
   justify-content: space-evenly;
   align-items: center;
   border: 5px solid var(--blur-effect-01);
+
+  @media screen and (min-width: 480px) {
+  }
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }
+  @media screen and (min-width: 1024px) {
+  }
+  @media screen and (min-width: 1200px) {
+  }
+  @media screen and (max-width: 1920px) {
+  }
 
   & > h1 {
     font-family: var(--font-quinternary-creepster);
@@ -106,14 +141,42 @@ export const CharacterInformation = styled.div`
           default:
         }
       }};
+
+    @media screen and (min-width: 480px) {
+      height: 50%;
+      max-width: 70%;
+    }
+    @media screen and (min-width: 768px) {
+      height: 40%;
+      max-width: 40%;
+    }
+    @media screen and (min-width: 1024px) {
+    }
+    @media screen and (min-width: 1200px) {
+    }
+    @media screen and (max-width: 1920px) {
+    }
   }
 
   & > h2 {
+    align-self: flex-start;
     font-family: var(--font-quinternary-nunito);
     font-size: var(--font-subtitle-20);
     font-weight: var(--font-weight-500);
     font-style: normal;
     color: var(--color-white-mode);
+
+    @media screen and (min-width: 480px) {
+    }
+    @media screen and (min-width: 768px) {
+      align-self: center;
+    }
+    @media screen and (min-width: 1024px) {
+    }
+    @media screen and (min-width: 1200px) {
+    }
+    @media screen and (max-width: 1920px) {
+    }
   }
 
   & > h2 > button {
@@ -134,22 +197,58 @@ export const CharacterInformation = styled.div`
 
     align-self: center;
   }
-
-  & > a {
-    font-family: var(--font-quinternary-nunito);
-    font-size: var(--font-subtitle-20);
-    font-weight: var(--font-weight-500);
-    font-style: normal;
-    color: var(--color-secondary);
-    text-decoration: none;
-  }
-
-  & > h2 > span,
-  & > a > span {
+  & > h2 > span {
     color: var(--color-quartenary);
   }
 
   & > img {
     border: 2px solid var();
+    width: 95%;
+  }
+`;
+
+export const EpisodeListButton = styled.button`
+  font-family: var(--font-quinternary-nunito);
+  font-size: var(--font-subtitle-20);
+  font-weight: var(--font-weight-500);
+  font-style: normal;
+  color: var(--color-black-mode);
+  text-decoration: none;
+  margin-left: 10px;
+  border: 1px var(--color-black-mode);
+  cursor: pointer;
+  margin-left: 20px;
+  -webkit-animation: glowing 1300ms infinite;
+  -moz-animation: glowing 1300ms infinite;
+  -o-animation: glowing 1300ms infinite;
+  animation: glowing 1300ms infinite;
+
+  @-webkit-keyframes glowing {
+    0% {
+      background-color: var(--color-glowing-01);
+      -webkit-box-shadow: 0 0 3px var(--color-glowing-01);
+    }
+    50% {
+      background-color: var(--color-glowing-02);
+      -webkit-box-shadow: 0 0 15px var(--color-glowing-02);
+    }
+    100% {
+      background-color: var(--color-glowing-01);
+      -webkit-box-shadow: 0 0 3px var(--color-glowing-01);
+    }
+  }
+  @keyframes glowing {
+    0% {
+      background-color: var(--color-glowing-01);
+      box-shadow: 0 0 3px var(--color-glowing-01);
+    }
+    50% {
+      background-color: var(--color-glowing-02);
+      box-shadow: 0 0 15px var(--color-glowing-02);
+    }
+    100% {
+      background-color: var(--color-glowing-01);
+      box-shadow: 0 0 3px var(--color-glowing-01);
+    }
   }
 `;

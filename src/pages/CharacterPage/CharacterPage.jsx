@@ -4,15 +4,25 @@ import {
   Character,
   CharacterInformation,
   CharacterSpace,
+  EpisodeListButton,
 } from "./styles";
 import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import Modal from "../../components/Modal/Modal";
+import { useState } from "react";
 
 const CharacterPage = () => {
-  let data = useLocation();
-  console.log(data.state.character);
+  const [listEp, setListEp] = useState([]);
+  let [showModal, setShowModal] = useState(false);
 
+  const openModal = (list) => {
+    setListEp(list);
+    setShowModal(true);
+  };
+
+  let data = useLocation();
+  let nameCharacter = data.state.character.name;
   let date = data.state.character.created;
+  let charId = data.state.character;
   let newDate = date.slice(0, 10);
 
   let statusChar = data.state.character.status;
@@ -20,7 +30,7 @@ const CharacterPage = () => {
     <>
       <Header />
       <CharacterSpace>
-        <ButtonBack to={"/home"}>Voltar</ButtonBack>
+        <ButtonBack to={"/home"}>Back</ButtonBack>
         <Character>
           <CharacterInformation statusChar={statusChar}>
             <h1>{data.state.character.name}</h1>
@@ -50,13 +60,26 @@ const CharacterPage = () => {
             <h2>
               <span>Location:</span> {data.state.character.location.name}
             </h2>
-
-            <Link>
-              <span>List of Episodes:</span> Check This out!
-            </Link>
           </CharacterInformation>
+
+          <h2>
+            <span>List of Episodes:</span>
+            <EpisodeListButton
+              onClick={() => openModal(data.state.character.episode)}
+            >
+              Check This out!
+            </EpisodeListButton>
+          </h2>
         </Character>
       </CharacterSpace>
+
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        listEp={listEp}
+        nameCharacter={nameCharacter}
+        charId={charId}
+      />
     </>
   );
 };

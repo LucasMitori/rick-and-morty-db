@@ -31,6 +31,9 @@ const GlobalStyle = createGlobalStyle`
     --color-grey-ex-1: #DEE2E6;
     --color-grey-ex-2: #EDF2FF;
 
+    --color-glowing-01: #0091b2;
+    --color-glowing-02: #21c7ed;
+
     --color-grey-0: #F8F9FA;
     --color-grey-1: #262c3a;
     --color-grey-2: #212529;

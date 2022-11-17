@@ -11,6 +11,7 @@ import {
   InfoCardSpace,
 } from "./styles";
 import Icon from "../../assets/img/icon.png";
+import { ToastError } from "../../components/Toast/toast";
 
 const HomePage = () => {
   const { characters, page, setPage } = useContext(CharContext);
@@ -18,19 +19,23 @@ const HomePage = () => {
   const previousPage = () => {
     if (page > 1) {
       setPage(page - 1);
+    } else {
+      ToastError("Não é possível voltar mais a página.");
     }
   };
 
   const nextPage = () => {
     setPage(page + 1);
   };
+
   return (
     <>
       <Header />
       <HomeSpace>
         <div>
-          <ButtonNextBack onClick={previousPage}>Previous Page</ButtonNextBack>
-          <ButtonNextBack onClick={nextPage}>Next Page</ButtonNextBack>
+          <ButtonNextBack onClick={previousPage}>&lt;&lt;</ButtonNextBack>
+          <span>Page number: {page}</span>
+          <ButtonNextBack onClick={nextPage}>&gt;&gt;</ButtonNextBack>
         </div>
         <CardRenderSpace>
           {characters.map((element) => {

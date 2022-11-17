@@ -1,13 +1,13 @@
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import api from "../services/api";
-import { ToastError, ToastMessage } from "../components/Toast/toast";
+import { ToastError } from "../components/Toast/toast";
 
 export const CharContext = createContext({});
 
 const CharProvider = ({ children }) => {
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState(1);
+  const [filter, setFilter] = useState([]);
 
   useEffect(() => {
     getCharacters();
@@ -35,13 +35,27 @@ const CharProvider = ({ children }) => {
 
   /*-------------------- Skip line --------------------*/
 
+  async function getOneCharacter(data) {
+    try {
+      const response = await api.get(`/character/?name=${data}`);
+      setCharacters(response.data.results);
+    } catch (error) {
+      console.error(error);
+      ToastError("Character does not exist");
+    }
+  }
+
   /*-------------------- Skip line --------------------*/
   return (
     <CharContext.Provider
       value={{
+        getCharacters,
+        getOneCharacter,
         setPage,
+        setFilter,
         characters,
         page,
+        filter,
       }}
     >
       {children}
